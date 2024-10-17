@@ -31,6 +31,7 @@ import {
 import { useAuth } from "@/app/context/AuthContext";
 import { Gender, RoleUser } from "@/app/inteface/charger";
 import { Phone, User, Users, Lock, AtSign } from "lucide-react";
+import { Roles } from "@/app/inteface/solar";
 const EditDialog = ({
   openDialogEditUsers,
   onClose,
@@ -83,7 +84,6 @@ const EditDialog = ({
       }
     },
     onError: (err) => {
-
       toast({
         title: "แก้ไขข้อมูลไม่สำเร็จ",
         className: "bg-red-500 text-white font-semibold",
@@ -288,20 +288,34 @@ const EditDialog = ({
                         <div className="relative">
                           <Users className="absolute left-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
                           <Select
-                            name="gender"
+                            name="role"
+                            value={values.role}
                             onValueChange={(value) =>
-                              setFieldValue("gender", value)
+                              setFieldValue("role", value)
                             }
                           >
                             <SelectTrigger
-                              id="gender"
+                              id="role"
                               className="pl-10 h-11 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             >
                               <SelectValue placeholder="เลือกบทบาท" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="1">ผู้ดูแลระบบ/แอดมิน</SelectItem>
-                              <SelectItem value="2">ผู้ใช้งานทั่วไป</SelectItem>
+                              {Roles.map(
+                                (i, x: number) =>
+                                  (!values.role ||
+                                    i.name !== values.role ||
+                                    x ===
+                                    Roles.findIndex(
+                                        (item) => item.name === values.role
+                                      )) && (
+                                    <SelectItem key={x} value={i.name}>
+                                      {i.name == 'ADMIN' ? "ผู้ดูแลระบบ": "ผู้ใช้งานทั่วไป"}
+                                    </SelectItem>
+                                  )
+                              )}
+                              {/* <SelectItem value="1">ผู้ดูแลระบบ/แอดมิน</SelectItem>
+                              <SelectItem value="2">ผู้ใช้งานทั่วไป</SelectItem> */}
                             </SelectContent>
                           </Select>
                         </div>

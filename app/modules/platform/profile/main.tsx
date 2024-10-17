@@ -56,7 +56,7 @@ const MainProfile = ({ id }: any) => {
           >
             ข้อมูลส่วนตัว
           </Button>
-          <Button
+          {/* <Button
             variant={activeSection === "change-password" ? "default" : "ghost"}
             className="w-full justify-start"
             onClick={() => setActiveSection("change-password")}
@@ -69,13 +69,13 @@ const MainProfile = ({ id }: any) => {
             onClick={() => setActiveSection("settings")}
           >
             การตั้งค่า
-          </Button>
+          </Button> */}
         </div>
         {/* <div className="flex items-center justify-center ml-0 md:ml-6 md:flex-grow "> */}
         <div className="w-full md:ml-6 md:flex-grow">
         <Personalinfo  activeSection={activeSection} setActiveSection={setActiveSection} getUserprofileId={getUserprofileId}/>
-        <Changepassword  activeSection={activeSection} setActiveSection={setActiveSection}/>
-        <Settings  activeSection={activeSection} setActiveSection={setActiveSection}/>
+        {/* <Changepassword  activeSection={activeSection} setActiveSection={setActiveSection}/>
+        <Settings  activeSection={activeSection} setActiveSection={setActiveSection}/> */}
         </div>
       </div>
     </Main>

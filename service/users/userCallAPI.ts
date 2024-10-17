@@ -37,12 +37,8 @@ export const getAllUsers = async ({
   }
 };
 
-export const createUser = async ({
-  token,
-  payload,
-}: any): Promise<any> => {
+export const createUser = async ({ token, payload }: any): Promise<any> => {
   try {
-
     const res = await axios.post(
       process.env.NEXT_PUBLIC_API + "users",
       payload,
@@ -60,15 +56,11 @@ export const createUser = async ({
   }
 };
 
-export const getUserById = async ({
-  id,
-  token,
-}: any): Promise<any> => {
+export const getUserById = async ({ id, token }: any): Promise<any> => {
   try {
     const res: AxiosResponse<any> = await axios.get(
       process.env.NEXT_PUBLIC_API + "users/" + id,
       {
-
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -82,8 +74,11 @@ export const getUserById = async ({
   }
 };
 
-
-export const updateUsersData = async ({ id, token, payload }: any): Promise<any> => {
+export const updateUsersData = async ({
+  id,
+  token,
+  payload,
+}: any): Promise<any> => {
   try {
     const res = await axios.put(
       process.env.NEXT_PUBLIC_API + "users/" + id,
@@ -95,9 +90,25 @@ export const updateUsersData = async ({ id, token, payload }: any): Promise<any>
       }
     );
     return res;
-  }
-  catch (error: any) {
+  } catch (error: any) {
     console.error("Error fetching users data:", error);
     throw error;
   }
-}
+};
+
+export const delUser = async ({ id, token }: any): Promise<any> => {
+  try {
+    const res = await axios.delete(
+      process.env.NEXT_PUBLIC_API + "users/" + id,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res;
+  } catch (error: any) {
+    console.error("Error fetching users data:", error);
+    throw error;
+  }
+};

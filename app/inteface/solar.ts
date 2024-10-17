@@ -250,6 +250,18 @@ export const additionalElectricalInfo = [
   },
 ];
 
+export const Roles = [
+  {
+    id: 1,
+    name: "ADMIN",
+  },
+  {
+    id: 2,
+    name: "USER",
+  },
+
+];
+
 export const breakerSizes = [
   {
     id: 1,

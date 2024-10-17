@@ -34,7 +34,43 @@ const Dh = () => {
   };
   return (
     <>
-      <div className="p-4">
+      <div className="p-4 ">
+        <div className="flex  items-center justify-center mb-4">
+          <div className="relative w-full max-w-[300px] aspect-square">
+            <Image
+              src="/pnev/solar.jpg"
+              alt="SolarTech Plant"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-2xl shadow-lg"
+            />
+          </div>
+        </div>
+        <div className="flex  items-center justify-center  mb-4">
+          <Badge
+            variant="outline"
+            className="text-lg px-4 py-1 bg-white dark:bg-gray-800"
+          >
+            SolarDashboard
+          </Badge>
+        </div>
+        <div className="flex  items-center justify-center mb-4">
+          <Button
+            onClick={() =>
+              window.open(
+                "https://platform.planet-ev.com:8443/solar/login",
+                "_blank"
+              )
+            }
+            className="w-full bg-gradient-to-r from-yellow-500 to-blue-500 hover:from-yellow-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+          >
+            <LayoutDashboard className="w-5 h-5 mr-2" />
+            Go to Dashboard
+          </Button>
+        </div>
+      </div>
+
+      {/* <div className="p-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -207,7 +243,7 @@ const Dh = () => {
             </div>
           </Card>
         </motion.div>
-      </div>
+      </div> */}
     </>
   );
 };

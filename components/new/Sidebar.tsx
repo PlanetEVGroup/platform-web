@@ -116,14 +116,14 @@ const Sidebar = ({userId, isOpen, setIsOpen }: any) => {
       aria: "Solar",
       path: "/platform/solar",
     },
-    {
-      label: "Car",
-      icon: <BsEvFront className="size-5" />,
-      bgColor: "bg-transparent",
-      textColor: "text-inherit",
-      aria: "Car",
-      path: "/platform/car",
-    },
+    // {
+    //   label: "Car",
+    //   icon: <BsEvFront className="size-5" />,
+    //   bgColor: "bg-transparent",
+    //   textColor: "text-inherit",
+    //   aria: "Car",
+    //   path: "/platform/car",
+    // },
   ];
 
   const adminMenuItems: any[] = [

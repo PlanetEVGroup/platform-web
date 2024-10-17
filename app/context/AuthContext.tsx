@@ -31,7 +31,7 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
-  const token: any = localStorage.getItem("accessToken");
+  const token: any = typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
   const { data: session, status } = useSession();
 
   useEffect(() => {

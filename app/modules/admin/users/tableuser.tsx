@@ -29,6 +29,7 @@ const Tableuser = ({
   setOpenDialogViewUsers,
   setSelecteId,
   setOpenDialogEditUsers,
+  setOpenDialogDelUsers,
 }: any) => {
   const router = useRouter();
   const renderText = (item: any) => {
@@ -136,11 +137,11 @@ const Tableuser = ({
 
                     <DropdownMenuItem
                       disabled={item?.role === Role.Admin}
-                      // onClick={() => {
-                      //   setOpenDialogEditUsers(true), setSelecteId(item.id);
-                      // }
+                      onClick={() => {
+                        setOpenDialogDelUsers(true), setSelecteId(item.id);
+                      }
 
-                      // }
+                      }
                     >
                       <Edit className="mr-2 h-4 w-4" />
                       ปิดใช้งาน / ลบผู้ใช้งาน

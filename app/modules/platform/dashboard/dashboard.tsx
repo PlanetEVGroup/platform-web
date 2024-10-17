@@ -16,7 +16,7 @@ const Dashboard = () => {
   const tabsDashboard: TabDashboard[] = [
     { value: "charger", label: "Charger", component: <DashboardCharger /> },
     { value: "solar", label: "Solar", component: <DashboardSolar /> },
-    { value: "car", label: "Car", component: "3" },
+    // { value: "car", label: "Car", component: "3" },
   ];
   return (
     <>
@@ -24,7 +24,7 @@ const Dashboard = () => {
         <Head ltext={"Overview"} icc="Overview" />
         <div className="w-full px-4 sm:px-6 lg:px-0">
           <Tabs defaultValue="charger" className="w-full">
-            <TabsList className="grid grid-cols-3 sm:grid-cols-3 lg:w-[600px] w-full mb-4">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-2 lg:w-[600px] w-full mb-4">
               {tabsDashboard.map((tab) => (
                 <TabsTrigger
                   key={tab.value}

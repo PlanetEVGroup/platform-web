@@ -26,7 +26,7 @@ const MainPage = () => {
   const tabsDashboard: TabDashboard[] = [
     { value: "1", label: "Dashboard", component: <DashboardCharger /> },
     { value: "2", label: "Survey", component: <Surveies /> },
-    { value: "3", label: "other", component: "other" },
+
   ];
 
 
@@ -47,7 +47,7 @@ const MainPage = () => {
         <div className="w-full  px-4 sm:px-6 lg:px-0">
         <Tabs defaultValue={currentTab} className="w-full" onValueChange={navigateToChargerTab}>
           <div className="flex items-center justify-between">
-            <TabsList className="grid grid-cols-3 sm:grid-cols-3 lg:w-[600px] w-full mb-4">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-2 lg:w-[600px] w-full mb-4">
               {tabsDashboard.map((tab) => (
                 <TabsTrigger key={tab.value} value={tab.value} className='px-2 py-1 text-sm sm:text-base'>
                   {tab.label}

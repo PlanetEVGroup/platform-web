@@ -13,8 +13,8 @@ const Main = ({
 }: Readonly<{
   children: ReactNode;
 }>) => {
-  const { token, session } = useAuth();
-
+  const { session } = useAuth();
+  const token: any = typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
   const {
     isPending,
     error,

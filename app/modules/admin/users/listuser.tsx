@@ -21,6 +21,7 @@ import Paginations from "@/components/custom/Paginations";
 import CreateDialog from "./dialog/createDialog";
 import ViewDialog from "./dialog/viewDialog";
 import EditDialog from "./dialog/editDialog";
+import DelDialog from "./dialog/delDialog";
 
 const Listuser = () => {
   const [openDialogCreateUsers, setOpenDialogCreateUsers] =
@@ -30,6 +31,8 @@ const Listuser = () => {
     useState<boolean>(false);
   const [openDialogViewUsers, setOpenDialogViewUsers] =
     useState<boolean>(false);
+  const [openDialogDelUsers, setOpenDialogDelUsers] = useState<boolean>(false);
+
   const [selecteId, setSelecteId] = useState<string>("");
   const { token, session } = useAuth();
   const [page, setPage] = useState<number>(1);
@@ -62,14 +65,14 @@ const Listuser = () => {
   });
   return (
     <Main>
-      <Head ltext={"ผู้ใช้งาน"}  icc={'users'}/>
+      <Head ltext={"ผู้ใช้งาน"} icc={"users"} />
       <div className="w-full  mb-4 ">
         <Card className="w-full">
           <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-start sm:justify-between sm:space-y-0">
             <div className="flex flex-col items-start space-y-2">
               <CardTitle className="text-start">ผู้ใช้งาน</CardTitle>
               <CardDescription>
-              จัดการผู้ใช้งานของคุณและตรวจสอบประสิทธิภาพการใช้งานแพลตฟอร์มของพวกเขา
+                จัดการผู้ใช้งานของคุณและตรวจสอบประสิทธิภาพการใช้งานแพลตฟอร์มของพวกเขา
               </CardDescription>
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
@@ -96,6 +99,7 @@ const Listuser = () => {
               setOpenDialogCreateUsers={setOpenDialogCreateUsers}
               setSelecteId={setSelecteId}
               setOpenDialogEditUsers={setOpenDialogEditUsers}
+              setOpenDialogDelUsers={setOpenDialogDelUsers}
             />
           </CardContent>
           <CardFooter className="flex items-center justify-between">
@@ -125,6 +129,17 @@ const Listuser = () => {
         setOpenDialogEditUsers={setOpenDialogEditUsers}
         onClose={() => {
           setOpenDialogEditUsers(false);
+        }}
+        id={selecteId}
+        lsh={refetch}
+      />
+
+      <DelDialog
+        openDialogDelUsers={openDialogDelUsers}
+        setOpenDialogDelUsers={setOpenDialogDelUsers}
+        onClose={() => {
+          setOpenDialogDelUsers(false);
+          setSelecteId("");
         }}
         id={selecteId}
         lsh={refetch}
